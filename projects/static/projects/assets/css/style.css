@@ -1,3 +1,6 @@
 body{
-    background-color: blue;
+    height: 100vh;
+    color: aliceblue;
+    background: linear-gradient(80deg, rgb(0, 12, 1), rgb(0, 0, 0));
 }
+
