@@ -26,3 +26,9 @@ def contact(request):
 
 def download(request):
     return render(request, 'projects/download.html')
+
+def project_detail(request, pk):
+    projects = proj.objects.get(pk=pk)
+    return render(request, 'projects/project_detail.html', 
+                  {'projects' : projects}
+                  )

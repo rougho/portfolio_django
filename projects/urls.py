@@ -10,7 +10,8 @@ urlpatterns = [
     path('contact/',views.contact),
     path('about/',views.about),
     path('download/',views.download),
-    path('projects/', views.projects)
+    path('projects/', views.projects),
+    path('projects/<int:pk>', views.project_detail)
 ]
 
 if settings.DEBUG:
