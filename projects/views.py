@@ -2,10 +2,13 @@ from django.shortcuts import render
 from projects.models import Project as proj
 
 # Create your views here.
-def project_list(request):
+def home(request):
+    return render(request, 'projects/index.html')
+
+def projects(request):
     projects_obj = proj.objects.all()
     print(projects_obj)
-    return render(request, 'projects/index.html',
+    return render(request, 'projects/projects.html',
                    {'projects' : projects_obj}
                    )
 
