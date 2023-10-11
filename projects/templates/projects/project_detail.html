@@ -1,12 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'projects/assets/css/style.css' %}">
     <title>rgho | project detail</title>
 </head>
 <body>
 
     <h2> this is project <span style="color: blue;">{{ projects.pk}}</span> </h2>
+    <img src="{% static projects.image %}" class="card-img-top" style="max-width: 500px;" alt="{{ project.description }}">
+    <h5 class="card-title">{{ projects.title}}</h5>
+    <p class="card-text">{{ projects.date}} : {{ projects.description }}
+         <br> {{ projects.technology}}</p>
 </body>
 </html>
