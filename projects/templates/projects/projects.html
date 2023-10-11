@@ -1,12 +1,11 @@
- {% extends 'projects/base.html' %}
+{% extends 'projects/base.html' %}
+{% load static %}
 
-  {% load static %}
+{% block title %} 
+  Projects | rgho 
+{% endblock %}
 
-
-  {% block title %} 
-    Projects | rgho 
-  {% endblock %}
-  {% block content %}
+{% block content %}
  <div class="container-xl p-5">
   <div class="row">
       {% for project in projects%}
