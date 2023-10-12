@@ -14,7 +14,7 @@
       <img src="{% static project.image %}" class="card-img-top img-fluid" alt="{{ project.description }}">
       <div class="card-body">
         <h5 class="card-title">{{ project.title}}</h5>
-        <p class="card-text">{{ project.date}} : {{ project.description }} <br> {{ project.technology}}</p>
+        <p class="card-text"><hr class="project-cards-hr mx-auto">Date: {{ project.date}} <br> {{ project.description }} <br> Technology: {{ project.technology}}</p>
         <a href="{% url 'projects:project_detail' project.pk %}" class="btn btn-primary">Details</a>
       </div>
     </div>

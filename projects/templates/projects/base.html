@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav me-auto mb-2 mb-lg-0">
                   <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'projects:home' %}">Home</a>
-<a class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}" href="{% url 'projects:projects' %}">Projects</a>
-<a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'projects:about' %}">About</a>
-<a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'projects:contact' %}">Contact</a>
-<a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'projects:download' %}">Download</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}" href="{% url 'projects:projects' %}">Projects</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'projects:about' %}">About</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'projects:contact' %}">Contact</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}" href="{% url 'projects:download' %}">Download</a>
 
                 
                 <!-- Buttons for smaller screens -->

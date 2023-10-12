@@ -7,5 +7,6 @@
     <img src="{% static projects.image %}" class="card-img-top" style="max-width: 500px;" alt="{{ project.description }}">
     <h5 class="card-title">{{ projects.title}}</h5>
     <p class="card-text">{{ projects.date}} : {{ projects.description }}
-         <br> {{ projects.technology}}</p>
+         <br> {{ projects.technology}} <br> Link: <a href="{{ projects.links }}">Visit the project code</a></p>
+         
 {% endblock %}
