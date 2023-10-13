@@ -1,11 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rgho | About</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %} 
+  About | rgho 
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container my-5">
+        <!-- Education Section -->
+        <div class="section-header">EDUCATION</div>
+        {% for study in education%}
+        <h4>{{study.campus}}</h4>
+        <p>{{study.location}} - {{study.start_date}} - {{study.end_date}}</p>
+        <ul>
+            <li>Relevant courses: {{study.relevant_courses}}</li>
+        </ul>
+        {% endfor %}
+        <hr class="project-cards-hr mx-auto">
+
+        <!-- Experience Section -->
+        <div class="section-header">EXPERIENCE</div>
+
+        {% for exp in experience%}
+        <h4>{{exp.job_title}}</h4>
+        <p>{{exp.organization}} - {{exp.start_date}} - {{end_date}}</p>
+        <ul>
+            <li>{{exp.job_description}}</li>
+        </ul>
+        {% endfor %}
+                <hr class="project-cards-hr mx-auto">
+
+        <!-- Projects Section -->
+        <div class="section-header">PROJECTS</div>
+        {% for pj in projects %}
+        <h4>{{pj.title}} | {{pj.technology}}</h4>
+        <p>{{pj.date}}</p>
+        <ul>
+            <li>{{pj.description}}.</li>
+        </ul>
+        {% endfor %}
+        <hr class="project-cards-hr mx-auto">
+
+        <!-- Technical Skills Section -->
+        <div class="section-header">TECHNICAL SKILLS</div>
+        
+        <ul class="list-unstyled">
+          {% for sk in skills %}
+            <li>{{sk.skill}}: {{sk.description}}</li>
+            <!-- ... -->
+            {% endfor %}
+        </ul>
+
+        <hr class="project-cards-hr mx-auto">
+
+        <!-- Other Section -->
+        <div class="section-header">OTHER</div>
+        <br>
+        <h4>Languages</h4>
+        {% for lan in others%}
+        <p>{{lan.languages}}</p>
+        {% endfor%}
+        <h4>Hobbies & Interests</h4>
+        {% for lan in others%}
+          <p>{{lan.interests}}</p>
+        {% endfor%}
+    </div>
+
+{% endblock %}
