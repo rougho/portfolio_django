@@ -38,8 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #custom tools
+    'django.contrib.gis',
+
     #custom apps
     'projects',
+    'near_me',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +87,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+
+    'geo_location_db': {
+        'ENGINE' : 'django.contrib.gis.db.backends.postgis',
+        'NAME' : 'target_locations',
+        'USER' : 'target_locations_db_admin',
+        'PASSWORD' : '123456',
+        'HOST' : 'localhost',
+        'PORT' : '5432'
     }
 }
 
@@ -133,3 +147,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "projects/static"),]
 
 # This is only if you're deploying, not required for development.
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Database Routers
+
+DATABASE_ROUTERS = ['near_me.routers.GeoLocationDBRouter']
+

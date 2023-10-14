@@ -17,9 +17,9 @@
               <h5 class="card-title">{{ project.title }}</h5>
               <p class="card-text">
                 <hr class="project-cards-hr mx-auto">
-                Date: {{ project.date}} <br> 
+                <span class="bold">Date: </span>{{ project.date}} <br> 
                 {{ project.description }} <br> 
-                Technology: {{ project.technology }}
+                <span class="bold">Technology:</span> {{ project.technology }}
               </p>
             </div>
             <a href="{% url 'projects:project_detail' project.pk %}" class="btn btn-light mt-3">Details</a> <!-- mt-3 (margin-top) is optional, for spacing -->
