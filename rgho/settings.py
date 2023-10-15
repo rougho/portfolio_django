@@ -85,17 +85,21 @@ WSGI_APPLICATION = 'rgho.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio',
+        'USER': 'portfolio_db_admin',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
-
+    
     'geo_location_db': {
-        'ENGINE' : 'django.contrib.gis.db.backends.postgis',
-        'NAME' : 'target_locations',
-        'USER' : 'target_locations_db_admin',
-        'PASSWORD' : '123456',
-        'HOST' : 'localhost',
-        'PORT' : '5432'
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'target_locations',
+        'USER': 'target_locations_db_admin',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -150,5 +154,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "projects/static"),]
 
 # Database Routers
 
-DATABASE_ROUTERS = ['near_me.routers.GeoLocationDBRouter']
+DATABASE_ROUTERS = ['routers.GeoLocationDBRouter']
 
