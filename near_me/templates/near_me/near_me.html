@@ -1,0 +1,69 @@
+{%extends 'near_me/base.html' %}
+
+{% load static %}
+{% csrf_token %}
+
+{%block title %} Geo Webapp | rgho {% endblock %}
+{% block content %}
+
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+<h2>User's IP:</h2>
+<p>{{ ip }}</p>
+
+<h2>User's Location:</h2>
+<p>Latitude: {{ latitude }}</p>
+<p>Longitude: {{ longitude }}</p>
+
+{% if shops %}
+<ul>
+    {% for shop in shops %}
+    <li>
+        {{shop.name}} : {{shop.distance}}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    x.innerHTML = "Latitude: " + latitude + 
+    "<br>Longitude: " + longitude;
+
+    // Send data to the server using fetch
+    fetch('{% url "near_me:receive_location" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({
+            'latitude': latitude,
+            'longitude': longitude
+        })
+    }).then(response => response.json()).then(data => {
+        console.log(data);
+    });
+}
+</script>
+
+{% endblock %}
