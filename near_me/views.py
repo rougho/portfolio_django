@@ -12,8 +12,8 @@ from django.utils.decorators import method_decorator
 
 
 """
-latitude = 52.3658395
-longitude = 13.1004331
+latitude = 52
+longitude = 13
 
 user_location = Point(longitude, latitude, srid=4326)
 
@@ -29,7 +29,9 @@ class Home(generic.ListView):
 def receive_location(request):
     if request.method == "POST":
         data = json.loads(request.body)
-        request.session['latitude'] = data.get('latitude', 5, 1)
+        request.session['latitude'] = data.get('latitude', 5)
+        request.session['longitude'] = data.get('longitude', 5)
+
         return JsonResponse({"status": "success", "message": "Location received."})
 
 
