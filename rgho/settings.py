@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #custom apps
     'projects',
     'near_me',
+    'users',
 ]
 
 MIDDLEWARE = [
